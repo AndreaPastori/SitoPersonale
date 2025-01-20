@@ -13,3 +13,4 @@ Di seguito inserisco il link della piattaforrma dove è stato pubblicato (Netifl
 - Netlify [https://pastoriandrea-portfolio.netlify.app/](https://pastoriandrea-portfolio.netlify.app/)
 - Github  [https://github.com/AndreaPastori/SitoPersonale](https://github.com/AndreaPastori/SitoPersonale)
 
+## Realizzazione 
