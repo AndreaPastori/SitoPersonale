@@ -1,192 +1,122 @@
 <!DOCTYPE html>
-
-<html>
-   <link rel="icon" href="logo_sito.png" type="image/png">
+<html lang="it">
 <head>
-    <title>PortfolioAndrea</title>
-   
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
-<style>
-body {
-            font-family:Playfair Display, regular 400; 
-            background-color: #293133;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Andrea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #f5f1eb;
             margin: 0;
             padding: 0;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #e1d7cb;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #d3c2b3;
+            padding: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px;
+            background-color: #eae4da;
         }
         .container {
             width: 80%;
-            max-width: 700px;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
         .section {
-            background-color: #FFFFFF;
+            background: white;
             padding: 40px;
-            margin: 20px 0;
-            border-radius: 20px;
- 
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        h2 {
-            color: #333;
+        .services {
+            display: flex;
+            justify-content: space-between;
         }
-        nav {
-            background-color: #1f2527;
-            padding: 10px;
+        .services div {
+            width: 30%;
+            background-color: #f8f5f0;
+            padding: 20px;
             text-align: center;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        input, textarea, button {
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;}
-      
-      .photo-section {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .photo {
-            width: 150px;
-            height: 150px;
-            background-image: url('IMG_1350.jpeg');
-            background-size: cover;
-            background-position: center;
-            border-radius: 50%;
-            border: 5px solid white; 
-            transition: transform 0.6s;
-        }
-        .photo:hover {
-            transform: rotateY(180deg);
-            background-image: url('logo_sito2.png');
-        }
-        .contact-list img {
-            width: 20px;
-            height: 20px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #1f2527;
-            color: white;
+        .social-proof {
             text-align: center;
-            line-height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-size: 24px;
+            font-style: italic;
         }
-        .scroll-to-top:hover {
-            background-color: #333;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e1d7cb;
         }
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #1f2527;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        form button:hover {
-            background-color: #333;
+        .map-container {
+            text-align: center;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>LOGO</h1>
+    </header>
     <nav>
         <a href="#chi-sono">Chi sono</a>
         <a href="#miei-lavori">I miei lavori</a>
-      <a href="#dove-trovarmi">Dove trovarmi</a>  
-      <a href="#contattami">Contattami</a>
+        <a href="#dove-trovarmi">Dove trovarmi</a>
+        <a href="#contattami">Contattami</a>
     </nav>
-    
-    <div class="container">
-        <div class="photo-section">
-            <div class="photo"></div>
-        </div>
-
+    <div class="hero">
+        <h2>Portfolio</h2>
+        <p>"Esplora il mio portfolio e scopri progetti di grafica creativi, dettagliati e pensati per lasciare il segno. Ogni lavoro racconta una storia, un'idea e una visione unica."</p>
+    </div>
     <div class="container">
         <div id="chi-sono" class="section">
             <h2>Chi sono</h2>
-            <p>Ciao! Sono Andrea e sono una grafica con una forte passione per il design visivo e la comunicazione creativa. Attraverso il mio lavoro, cerco di trasformare idee in immagini efficaci, combinando estetica e funzionalità. Mi occupo di branding, tipografia e comunicazione principalmente, lavorando con colori, forme e lettering per creare identità visive uniche e riconoscibili. Credo nel potere del design di raccontare storie e trasmettere emozioni. Ogni progetto è un'opportunità per esplorare nuove soluzioni visive, sperimentare con stili e tecniche, e dare vita a concept originali e su misura per il cliente.</p>
+            <p>Ciao! Sono Andrea e sono una grafica con una forte passione per il design visivo e la comunicazione creativa. Attraverso il mio lavoro, cerco di trasformare idee in immagini efficaci, combinando estetica e funzionalità...</p>
         </div>
-        <div id="miei-lavori" class="section">
-            <h2>I miei lavori</h2>
-            <p>Ho lavorato su vari progetti, dall'immagine coordinata alla realizzazione di elaborati editoriali.</p>
+        <div class="services">
+            <div>Service One</div>
+            <div>Service Two</div>
+            <div>Service Three</div>
         </div>
-       
-        <div id="dove-trovarmi" class="section">
+        <div class="section social-proof">
+            <h2>mie lavori</h2>
+          
+        </div>
+        <div id="dove-trovarmi" class="section map-container">
             <h2>Dove trovarmi</h2>
-           
-          <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11394.245420143013!2d8.9350825!3d45.55212185000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786921eaee88889%3A0x3143979e6b79f6a9!2s20015%20Parabiago%20MI!5e0!3m2!1sit!2sit!4v1709748163653!5m2!1sit!2sit" 
-        width="100%" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
-
-<div id="contattami" class="section">
-    <h2>Contattami</h2>
-</head>
-<body>
-<ul>
-<li>andreapatrizia.pastori@gmail.com</li>
-<li>(+39) 3920451250</li>
-<li><a
-href="https://www.instagram.com/_andreapastori_" target="_blank">@_andreapastori_i</a>
- <li><a href="https://www.linkedin.com/in/andreapatriziapastori/" target="_blank"> Andrea Patrizia Pastori</a>
-</ul>
-</body>
-
-</div>
-
-        </div>
-        <div class="container">
-            <div id="contattami" class="section">
-            <h2>Contattami</h2>
-            <form action="mailto:andreapatrizia.pastori@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Il tuo nome" required>
-                <input type="email" name="email" placeholder="La tua email" required>
-                <textarea name="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
-                <button type="submit">Invia</button>
-            </form>
-        </div>
+            <iframe 
+                width="100%" 
+                height="400" 
+                frameborder="0" 
+                style="border:0" 
+                allowfullscreen 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11207.139744665346!2d8.946586799999999!3d45.5548438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478690f139de2f2b%3A0x7a34a684c41ebed7!2sParabiago%20MI!5e0!3m2!1sit!2sit!4v1710673382678"></iframe>
         </div>
     </div>
-    <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</div>
+    <footer>
+        <p>&copy; 2025 Portfolio Andrea | Social Media | Contatti</p>
+    </footer>
 </body>
 </html>
-
