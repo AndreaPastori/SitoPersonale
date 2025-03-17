@@ -69,8 +69,43 @@
             padding: 20px;
             background-color: #e1d7cb;
         }
-        .map-container {
+        .map-container, .contact-container {
             text-align: center;
+        }
+        .contact-container ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-container li {
+            margin: 10px 0;
+        }
+        .contact-container a {
+            color: #333;
+            text-decoration: none;
+        }
+        .contact-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-container input, .contact-container textarea {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-container button {
+            background-color: #d3c2b3;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-container button:hover {
+            background-color: #b8a495;
         }
     </style>
 </head>
@@ -99,8 +134,8 @@
             <div>Service Three</div>
         </div>
         <div class="section social-proof">
-            <h2>mie lavori</h2>
-          
+            <h2>miei lavori</h2>
+            
         </div>
         <div id="dove-trovarmi" class="section map-container">
             <h2>Dove trovarmi</h2>
@@ -113,6 +148,21 @@
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11207.139744665346!2d8.946586799999999!3d45.5548438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478690f139de2f2b%3A0x7a34a684c41ebed7!2sParabiago%20MI!5e0!3m2!1sit!2sit!4v1710673382678"></iframe>
+        </div>
+        <div id="contattami" class="section contact-container">
+            <h2>Contattami</h2>
+            <ul>
+                <li>Email: andreapatrizia.pastori@gmail.com</li>
+                <li>Telefono: (+39) 3920451250</li>
+                <li><a href="https://www.instagram.com/_andreapastori_" target="_blank">@_andreapastori_</a></li>
+                <li><a href="https://www.linkedin.com/in/andreapatriziapastori/" target="_blank">Andrea Patrizia Pastori</a></li>
+            </ul>
+            <form action="mailto:andreapatrizia.pastori@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Il tuo nome" required>
+                <input type="email" name="email" placeholder="La tua email" required>
+                <textarea name="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
+                <button type="submit">Invia</button>
+            </form>
         </div>
     </div>
     <footer>
