@@ -180,6 +180,46 @@
         cursor: pointer;
         border-radius: 5px;
     }
+    .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #b8a495;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 8px #b8a495;
+            font-size: 24px;
+        }
+        .scroll-to-top:hover {
+            background-color: #b8a495;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #b8a495;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        form button:hover {
+            background-color: #b8a495;
+        }
+
     </style>
 </head>
 <body>
@@ -202,7 +242,7 @@
             <p>Ciao! Sono Andrea e sono una grafica con una forte passione per il design visivo e la comunicazione creativa. Attraverso il mio lavoro, cerco di trasformare idee in immagini efficaci, combinando estetica e funzionalità. Mi occupo di branding, tipografia e comunicazione principalmente, lavorando con colori, forme e lettering per creare identità visive uniche e riconoscibili. Credo nel potere del design di raccontare storie e trasmettere emozioni. Ogni progetto è un'opportunità per esplorare nuove soluzioni visive, sperimentare con stili e tecniche, e dare vita a concept originali e su misura per il cliente.</p>
         </div>
         <div class="container">
-            <div id="#miei-lavori" class="section">
+            <div id="miei-lavori" class="section">
                 <h2>I miei Lavori</h2>
     
         <body>
@@ -279,6 +319,7 @@
     <footer>
         <p>&copy; 2025 Portfolio Andrea | Social Media | Contatti</p>
     </footer>
-   
+    <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</div>
+
 </body>
 </html>
