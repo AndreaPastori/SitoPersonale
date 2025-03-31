@@ -117,13 +117,61 @@ nav a {
 
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
     background-color: #e1d7cb;
     width: 100%; 
     margin: 0; 
     box-sizing: border-box; 
     position: relative; 
     left: 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-cta {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d3c2b3;
+    border-radius: 10px;
+}
+
+.footer-cta h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.footer-cta p {
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #b8a495;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #a08c7e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .footer-cta h3 {
+        font-size: 20px;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+    }
 }
 
 .map-container, .contact-container {
