@@ -357,6 +357,12 @@ form button:hover {
         text-align: left;
     }
     
+  
+    .skill-bar {
+        width: 100%;
+    }
+    
+    
     .work-item {
         min-width: 140px;
         height: 200px;
