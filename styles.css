@@ -44,6 +44,19 @@ header {
     transform: translateY(2px);
 }
 
+    form label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        text-align: left;
+    }
+    
+    form input, form textarea {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+
 @media screen and (max-width: 768px) {
     .section-header {
         flex-direction: column;
@@ -478,6 +491,23 @@ form button:hover {
     
     .contact-container form {
         width: 100%;
+    }
+    .privacy-checkbox {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px 0;
+    }
+    
+    .privacy-checkbox input[type="checkbox"] {
+        width: auto;
+        margin-bottom: 8px;
+        margin-right: 8px;
+    }
+    
+    .privacy-checkbox label {
+        font-size: 14px;
+        line-height: 1.4;
     }
 }
 

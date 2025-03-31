@@ -135,10 +135,23 @@
                 <li><a href="https://www.linkedin.com/in/andreapatriziapastori/" target="_blank">Linkedin: Andrea Patrizia Pastori</a></li>
             </ul>
             <form action="mailto:andreapatrizia.pastori@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Il tuo nome" required>
-                <input type="email" name="email" placeholder="La tua email" required>
-                <textarea name="message" rows="5" placeholder="Il tuo messaggio" required></textarea>
+                <label for="name">Il tuo nome</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">La tua email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Il tuo messaggio</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <div class="form-group privacy-checkbox">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">Accetto la privacy policy e il trattamento dei miei dati personali *</label>
+                </div>
+                
                 <button type="submit">Invia</button>
+            </form>
+            
             </form>
         </div>
     </div>
