@@ -14,25 +14,28 @@
 </head>
 <body>
     <header>
-            <img src="logo_sito.png" alt="Logo di Andrea" style="height: 80px;">
+        <img src="logo_sito.png" alt="Logo di Andrea" style="height: 80px;">
     </header>
-    <nav>
+    
+    <nav id="main-nav">
         <a href="#chi-sono">Chi sono</a>
         <a href="#miei-lavori">I miei lavori</a>
         <a href="#dove-trovarmi">Dove trovarmi</a>
         <a href="#contattami">Contattami</a>
     </nav>
+    
     <div class="hero">
         <h2>Portfolio</h2>
         <p>"Esplora il mio portfolio e scopri progetti di grafica creativi, dettagliati e pensati per lasciare il segno. Ogni lavoro racconta una storia, un'idea e una visione unica."</p>
     </div>
+    
     <div class="container">
         <div id="chi-sono" class="section">
             <h2>Chi sono</h2>
             <p>Ciao! Sono Andrea e sono una grafica con una forte passione per il design visivo e la comunicazione creativa. Attraverso il mio lavoro, cerco di trasformare idee in immagini efficaci, combinando estetica e funzionalità. Mi occupo di branding, tipografia e comunicazione principalmente, lavorando con colori, forme e lettering per creare identità visive uniche e riconoscibili. Credo nel potere del design di raccontare storie e trasmettere emozioni. Ogni progetto è un'opportunità per esplorare nuove soluzioni visive, sperimentare con stili e tecniche, e dare vita a concept originali e su misura per il cliente.</p>
         </div>
 
-        <div class="skills-container">
+        <div class="skills-container section">
             <h3>Le mie competenze</h3>
             <div class="skills-table">
                 <div class="skill-item">
@@ -44,40 +47,38 @@
                 <div class="skill-item">
                     <div class="skill-name">Illustrator</div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
+                        <div class="skill-level" style="width: 90%">9/10</div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">Photoshop</div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%"></div>
+                        <div class="skill-level" style="width: 80%">8/10</div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">Premiere</div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 70%"></div>
+                        <div class="skill-level" style="width: 70%">7/10</div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">Inglese</div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 60%"></div>
+                        <div class="skill-level" style="width: 60%">6/10</div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">Spagnolo</div>
                     <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%"></div>
+                        <div class="skill-level" style="width: 80%">8/10</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div id="miei-lavori" class="section">
-                <h2>I miei Lavori</h2>
-    
-        <body>
+        
+        <div id="miei-lavori" class="section">
+            <h2>I miei Lavori</h2>
             <div class="carousel-container">
                 <button class="carousel-btn left" onclick="moveSlide(-1)">&#10094;</button>
                 <div class="carousel">
@@ -97,29 +98,8 @@
                 <p id="project-description"></p>
                 <button class="close-btn" onclick="closeDetails()">Chiudi</button>
             </div>
-            
-            <script>
-                let index = 0;
-                function moveSlide(direction) {
-                    const slide = document.querySelector('.carousel-slide');
-                    const items = document.querySelectorAll('.work-item');
-                    const itemWidth = items[0].offsetWidth + 20;
-                    index += direction;
-                    if (index < 0) index = items.length - 3;
-                    if (index > items.length - 3) index = 0;
-                    slide.style.transform = `translateX(-${index * itemWidth}px)`;
-                }
-                function openDetails(title, description) {
-                    document.getElementById('project-title').innerText = title;
-                    document.getElementById('project-description').innerText = description;
-                    document.getElementById('project-details').style.display = 'block';
-                }
-                function closeDetails() {
-                    document.getElementById('project-details').style.display = 'none';
-                }
-            </script>
-            
         </div>
+            
         <div id="dove-trovarmi" class="section map-container">
             <h2>Dove trovarmi</h2>
             <iframe 
@@ -132,6 +112,7 @@
                 referrerpolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11207.139744665346!2d8.946586799999999!3d45.5548438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478690f139de2f2b%3A0x7a34a684c41ebed7!2sParabiago%20MI!5e0!3m2!1sit!2sit!4v1710673382678"></iframe>
         </div>
+        
         <div id="contattami" class="section contact-container">
             <h2>Contattami</h2>
             <ul>
@@ -148,9 +129,50 @@
             </form>
         </div>
     </div>
+    
     <footer>
         <p>&copy; 2025 Portfolio Andrea | Social Media | Contatti</p>
     </footer>
+    
     <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</div>
+    
+    <script>
+        let index = 0;
+        
+        function moveSlide(direction) {
+            const slide = document.querySelector('.carousel-slide');
+            const items = document.querySelectorAll('.work-item');
+            
+            // Calcola la larghezza in base alla dimensione dello schermo
+            const itemWidth = items[0].offsetWidth + 20;
+            const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+            
+            index += direction;
+            if (index < 0) index = items.length - visibleItems;
+            if (index > items.length - visibleItems) index = 0;
+            
+            slide.style.transform = `translateX(-${index * itemWidth}px)`;
+        }
+        
+        function openDetails(title, description) {
+            document.getElementById('project-title').innerText = title;
+            document.getElementById('project-description').innerText = description;
+            document.getElementById('project-details').style.display = 'block';
+        }
+        
+        function closeDetails() {
+            document.getElementById('project-details').style.display = 'none';
+        }
+        
+        // Inizializza il carosello
+        window.addEventListener('load', function() {
+            // Aggiungi un evento di ridimensionamento per ricalibrare il carosello
+            window.addEventListener('resize', function() {
+                const slide = document.querySelector('.carousel-slide');
+                slide.style.transform = 'translateX(0)';
+                index = 0;
+            });
+        });
+    </script>
 </body>
 </html>
