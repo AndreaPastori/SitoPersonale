@@ -29,7 +29,7 @@ nav a {
     background-color: #eae4da;
 }
 .container {
-    width: 80%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 0;
@@ -41,6 +41,55 @@ nav a {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+.skills-container {
+    margin-top: 30px;
+}
+
+.skills-container h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.skills-table {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.skill-name {
+    width: 100px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.skill-bar {
+    flex-grow: 1;
+    background-color: #f0e9e0;
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: #b8a495; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 25px;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
 .services {
     display: flex;
     justify-content: space-between;
