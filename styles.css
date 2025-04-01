@@ -568,52 +568,62 @@ select:focus {
     outline: 2px solid #b8a495; /* Colore del focus */
     outline-offset: 2px; /* Distanza tra il bordo e l'outline */
 }
+.hamburger-btn {
+    display: none; /* Nascosto di default */
+}
+
+/* Stili specifici per mobile */
 @media screen and (max-width: 768px) {
-    /* Nasconde il menu di navigazione per default su mobile */
-    .nav-menu {
-        display: none;
-        width: 100%;
-        background-color: #d3c2b3;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 999;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    /* Mostra il menu quando la classe 'show' viene aggiunta */
-    .nav-menu.show {
-        display: block !important; /* Usa !important per sovrascrivere altri stili */
-    }
-    
-    /* Stile per il bottone hamburger */
+    /* Mostra il bottone hamburger */
     .hamburger-btn {
         display: block;
         position: absolute;
         right: 20px;
         top: 20px;
-        z-index: 100;
-        cursor: pointer;
         background: none;
         border: none;
         font-size: 24px;
+        cursor: pointer;
+        z-index: 1001; /* Valore alto per essere sopra tutto */
         color: #222;
+        padding: 10px;
     }
     
-    /* Stile per il contenitore nav */
+    /* Container di navigazione */
     nav {
         position: relative;
-        padding: 15px;
-        min-height: 50px; /* Assicura spazio sufficiente per il bottone */
+        min-height: 60px; /* Spazio per il bottone */
     }
     
-    /* Stile per i link nel menu di navigazione */
+    /* Menu di navigazione - nascosto inizialmente */
+    .nav-menu {
+        display: none; /* Nascosto di default */
+        position: absolute;
+        top: 100%; /* Posizionato subito sotto la nav */
+        left: 0;
+        width: 100%;
+        background-color: #d3c2b3;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Quando è attivo (ha la classe show) */
+    .nav-menu.show {
+        display: block !important;
+    }
+    
+    /* Link nel menu */
     .nav-menu a {
         display: block;
-        width: 100%;
-        padding: 15px;
+        padding: 15px 20px;
         border-bottom: 1px solid rgba(0,0,0,0.1);
+        color: #222;
+        font-weight: normal;
         text-align: left;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .nav-menu a:last-child {
@@ -621,19 +631,15 @@ select:focus {
     }
 }
 
-/* Stile per il menu su desktop */
+/* Stili per desktop */
 @media screen and (min-width: 769px) {
     .nav-menu {
-        display: flex !important;
+        display: flex;
         flex-direction: row;
-        width: auto;
-    }
-    
-    .hamburger-btn {
-        display: none;
+        justify-content: center;
     }
     
     .nav-menu a {
-        border-bottom: none;
+        padding: 10px 20px;
     }
 }
