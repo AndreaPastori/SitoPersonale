@@ -568,3 +568,72 @@ select:focus {
     outline: 2px solid #b8a495; /* Colore del focus */
     outline-offset: 2px; /* Distanza tra il bordo e l'outline */
 }
+@media screen and (max-width: 768px) {
+    /* Nasconde il menu di navigazione per default su mobile */
+    .nav-menu {
+        display: none;
+        width: 100%;
+        background-color: #d3c2b3;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 999;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Mostra il menu quando la classe 'show' viene aggiunta */
+    .nav-menu.show {
+        display: block !important; /* Usa !important per sovrascrivere altri stili */
+    }
+    
+    /* Stile per il bottone hamburger */
+    .hamburger-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 100;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #222;
+    }
+    
+    /* Stile per il contenitore nav */
+    nav {
+        position: relative;
+        padding: 15px;
+        min-height: 50px; /* Assicura spazio sufficiente per il bottone */
+    }
+    
+    /* Stile per i link nel menu di navigazione */
+    .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        text-align: left;
+    }
+    
+    .nav-menu a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Stile per il menu su desktop */
+@media screen and (min-width: 769px) {
+    .nav-menu {
+        display: flex !important;
+        flex-direction: row;
+        width: auto;
+    }
+    
+    .hamburger-btn {
+        display: none;
+    }
+    
+    .nav-menu a {
+        border-bottom: none;
+    }
+}
