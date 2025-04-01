@@ -35,6 +35,7 @@ window.addEventListener('load', function() {
         index = 0;
     });
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded');
     
@@ -46,46 +47,41 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Hamburger button:', hamburgerBtn);
     console.log('Nav menu:', navMenu);
     
-    // Funzione toggle per il menu
-    function toggleMenu(e) {
-        if (e) e.preventDefault();
-        console.log('Toggle menu called');
-        
-        // Verifica se il menu è già visibile
-        const isVisible = navMenu.classList.contains('show');
-        console.log('Menu currently visible:', isVisible);
-        
-        // Toggle della classe show
-        if (isVisible) {
-            navMenu.classList.remove('show');
-            console.log('Menu hidden');
-        } else {
-            navMenu.classList.add('show');
-            console.log('Menu shown');
-        }
-    }
-    
-    // Aggiungi evento click al bottone hamburger
-    if (hamburgerBtn) {
+    // Verifica se ENTRAMBI gli elementi esistono prima di procedere
+    if (hamburgerBtn && navMenu) {
         console.log('Adding click event to hamburger button');
-        hamburgerBtn.addEventListener('click', toggleMenu);
+        
+        // Aggiungi evento click al bottone hamburger
+        hamburgerBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Toggle menu called');
+            
+            // Toggle della classe show
+            navMenu.classList.toggle('show');
+            console.log(navMenu.classList.contains('show') ? 'Menu shown' : 'Menu hidden');
+        });
+        
+        // Chiudi il menu quando si fa click su un link
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('show');
+                console.log('Menu closed by link click');
+            });
+        });
+    } else {
+        console.error('Menu hamburger elements not found! hamburgerBtn:', hamburgerBtn, 'navMenu:', navMenu);
     }
     
-    // Chiudi il menu quando si fa click su un link
-    const navLinks = document.querySelectorAll('#nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('show');
-            console.log('Menu closed by link click');
-        });
-    });
-    
-    // Resto del tuo codice per carosello
+    // Codice per il carosello
     let index = 0;
     
-    window.moveSlide = function(direction) {
+    function moveSlide(direction) {
         const slide = document.querySelector('.carousel-slide');
         const items = document.querySelectorAll('.work-item');
+        
+        if (!slide || items.length === 0) return;
+        
         const itemWidth = items[0].offsetWidth + 20;
         const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
         
@@ -94,18 +90,33 @@ document.addEventListener('DOMContentLoaded', function() {
         if (index > items.length - visibleItems) index = 0;
         
         slide.style.transform = `translateX(-${index * itemWidth}px)`;
-    };
+    }
     
-    window.openDetails = function(title, description) {
-        document.getElementById('project-title').innerText = title;
-        document.getElementById('project-description').innerText = description;
-        document.getElementById('project-details').style.display = 'block';
-    };
+    function openDetails(title, description) {
+        const projectTitle = document.getElementById('project-title');
+        const projectDescription = document.getElementById('project-description');
+        const projectDetails = document.getElementById('project-details');
+        
+        if (projectTitle && projectDescription && projectDetails) {
+            projectTitle.innerText = title;
+            projectDescription.innerText = description;
+            projectDetails.style.display = 'block';
+        }
+    }
     
-    window.closeDetails = function() {
-        document.getElementById('project-details').style.display = 'none';
-    };
+    function closeDetails() {
+        const projectDetails = document.getElementById('project-details');
+        if (projectDetails) {
+            projectDetails.style.display = 'none';
+        }
+    }
     
+    // Esponi le funzioni globalmente se necessario
+    window.moveSlide = moveSlide;
+    window.openDetails = openDetails;
+    window.closeDetails = closeDetails;
+    
+    // Gestisci il ridimensionamento della finestra
     window.addEventListener('resize', function() {
         const slide = document.querySelector('.carousel-slide');
         if (slide) {

@@ -565,8 +565,8 @@ a:focus,
 input:focus,
 textarea:focus,
 select:focus {
-    outline: 2px solid #b8a495; /* Colore del focus */
-    outline-offset: 2px; /* Distanza tra il bordo e l'outline */
+    outline: 2px solid #b8a495; 
+    outline-offset: 2px; 
 }
 .hamburger-btn {
     display: none; /* Nascosto di default */
@@ -642,4 +642,28 @@ select:focus {
     .nav-menu a {
         padding: 10px 20px;
     }
+}
+.section-title {
+    color: #000000; /* Nero per un alto contrasto */
+}
+
+.text-white {
+    color: #ffffff; /* Bianco pieno per miglior contrasto su sfondi scuri */
+}
+
+p, .text-content {
+    color: #333333; /* Grigio scuro invece del grigio medio */
+}
+
+footer p, footer a {
+    color: #ffffff; /* Testo bianco nel footer per contrasto con sfondo scuro */
+}
+
+/* Aumenta il contrasto per il testo descrittivo nei progetti */
+.work-item h3 {
+    color: #000000;
+}
+
+.work-item p {
+    color: #333333;
 }
