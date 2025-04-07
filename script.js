@@ -1,20 +1,12 @@
 <script>
 let index = 0;
-
-function moveSlide(direction) {
-    const slide = document.querySelector('.carousel-slide');
-    const items = document.querySelectorAll('.work-item');
-    
-    // Calcola la larghezza in base alla dimensione dello schermo
-    const itemWidth = items[0].offsetWidth + 20;
-    const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-    
-    index += direction;
-    if (index < 0) index = items.length - visibleItems;
-    if (index > items.length - visibleItems) index = 0;
-    
-    slide.style.transform = `translateX(-${index * itemWidth}px)`;
-}
+        function moveSlide(direction) {
+            const slide = document.querySelector('.carousel-slide');
+            const items = document.querySelectorAll('.work-item');
+            const total = items.length;
+            index = (index + direction + total) % total;
+            slide.style.transform = ⁠ translateX(${-index * 200}px) ⁠;
+        }
 
 function openDetails(title, description) {
     document.getElementById('project-title').innerText = title;
