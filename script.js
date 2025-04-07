@@ -116,35 +116,3 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-
-  document.addEventListener('keydown', function(e) {
-    // Chiudi progetto con ESC
-    if (e.key === 'Escape') {
-        const visibleProject = document.querySelector('.project-details[style*="display: block"]');
-        if (visibleProject) {
-            closeProject(visibleProject.id);
-        }
-    }
-});
-
-// Modifica le funzioni di apertura per gestire correttamente il focus
-function openProject(projectNum) {
-    //const project = document.getElementById(⁠ project${projectNum} ⁠);
-    project.style.display = 'block';
-    document.getElementById('projectOverlay').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    
-    // Sposta il focus al popup e imposta il focus trap
-    const closeButton = project.querySelector('.close-btn');
-    closeButton.focus();
-}
-
-function closeProject(projectId) {
-    document.getElementById(projectId).style.display = 'none';
-    document.getElementById('projectOverlay').style.display = 'none';
-    document.body.style.overflow = 'auto';
-    
-    // Ripristina il focus
-    const projectNumber = projectId.replace('project', '');
-   // document.querySelector(⁠ .work-item[onclick="openProject(${projectNumber})"] ⁠).focus();
-}
