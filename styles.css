@@ -572,7 +572,6 @@ select:focus {
     display: none; /* Nascosto di default */
 }
 
-/* Stili specifici per mobile */
 @media screen and (max-width: 768px) {
     /* Mostra il bottone hamburger */
     .hamburger-btn {

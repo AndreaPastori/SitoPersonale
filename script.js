@@ -37,46 +37,34 @@ window.addEventListener('load', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded');
-    
-    // Riferimenti agli elementi
+    // Gestione del menu hamburger
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.getElementById('nav-menu');
     
-    // Log per debug
-    console.log('Hamburger button:', hamburgerBtn);
-    console.log('Nav menu:', navMenu);
-    
-    // Verifica se ENTRAMBI gli elementi esistono prima di procedere
     if (hamburgerBtn && navMenu) {
-        console.log('Adding click event to hamburger button');
-        
-        // Aggiungi evento click al bottone hamburger
-        hamburgerBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Toggle menu called');
-            
-            // Toggle della classe show
-            navMenu.classList.toggle('show');
-            console.log(navMenu.classList.contains('show') ? 'Menu shown' : 'Menu hidden');
+        hamburgerBtn.addEventListener('click', function() {
+            // Controlla se il menu è visibile
+            if (navMenu.style.display === 'block') {
+                navMenu.style.display = 'none';
+            } else {
+                navMenu.style.display = 'block';
+            }
+            console.log('Menu hamburger cliccato');
         });
         
         // Chiudi il menu quando si fa click su un link
         const navLinks = document.querySelectorAll('#nav-menu a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navMenu.classList.remove('show');
-                console.log('Menu closed by link click');
+                navMenu.style.display = 'none';
             });
         });
-    } else {
-        console.error('Menu hamburger elements not found! hamburgerBtn:', hamburgerBtn, 'navMenu:', navMenu);
     }
     
-    // Codice per il carosello
+    // Carosello
     let index = 0;
     
-    function moveSlide(direction) {
+    window.moveSlide = function(direction) {
         const slide = document.querySelector('.carousel-slide');
         const items = document.querySelectorAll('.work-item');
         
@@ -90,9 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (index > items.length - visibleItems) index = 0;
         
         slide.style.transform = `translateX(-${index * itemWidth}px)`;
-    }
+    };
     
-    function openDetails(title, description) {
+    window.openDetails = function(title, description) {
         const projectTitle = document.getElementById('project-title');
         const projectDescription = document.getElementById('project-description');
         const projectDetails = document.getElementById('project-details');
@@ -102,28 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
             projectDescription.innerText = description;
             projectDetails.style.display = 'block';
         }
-    }
+    };
     
-    function closeDetails() {
+    window.closeDetails = function() {
         const projectDetails = document.getElementById('project-details');
         if (projectDetails) {
             projectDetails.style.display = 'none';
         }
-    }
-    
-    // Esponi le funzioni globalmente se necessario
-    window.moveSlide = moveSlide;
-    window.openDetails = openDetails;
-    window.closeDetails = closeDetails;
-    
-    // Gestisci il ridimensionamento della finestra
-    window.addEventListener('resize', function() {
-        const slide = document.querySelector('.carousel-slide');
-        if (slide) {
-            slide.style.transform = 'translateX(0)';
-            index = 0;
-        }
-    });
+    };
 });
 
 </script>
