@@ -1,11 +1,11 @@
-<script>
+
 let index = 0;
         function moveSlide(direction) {
             const slide = document.querySelector('.carousel-slide');
             const items = document.querySelectorAll('.work-item');
             const total = items.length;
             index = (index + direction + total) % total;
-            slide.style.transform = ⁠ translateX(${-index * 200}px) ⁠;
+           // slide.style.transform = ⁠ translateX(${-index * 200}px) ⁠;
         }
 
 function openDetails(title, description) {
@@ -91,5 +91,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 });
-
-</script>
