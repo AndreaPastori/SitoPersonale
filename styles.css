@@ -666,3 +666,33 @@ footer p, footer a {
 .work-item p {
     color: #333333;
 }
+
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #d3c2b3; /* Stesso colore del tuo nav attuale */
+    transition: all 0.3s ease;
+  }
+  
+  /* Assicura che il bottone hamburger rimanga visibile quando il menu è fisso */
+  .sticky-nav .hamburger-btn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  
+  /* Stile per il menu di navigazione quando è fisso */
+  .sticky-nav .nav-menu {
+    top: 100%;
+  }
+  
+  /* Aggiungi un po' di padding quando il menu è fisso per mantenere la leggibilità */
+  @media screen and (max-width: 768px) {
+    .sticky-nav {
+      padding: 10px 0;
+    }
+  }
