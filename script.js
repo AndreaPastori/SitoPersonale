@@ -129,13 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
       slide.style.transform = `translateX(-${index * itemWidth}px)`;
     };
     
-    
-    window.closeDetails = function() {
-      const projectDetails = document.getElementById('project-details');
-      if (projectDetails) {
-        projectDetails.style.display = 'none';
-      }
-    };
+  
     
     // Ricalibra la posizione del nav quando la finestra viene ridimensionata
     window.addEventListener('resize', function() {
