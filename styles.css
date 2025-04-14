@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #222;
-    padding-top: 80px; /* Compensare l'altezza del menu fisso */
+    padding-top: 70px; /* Compensare l'altezza del menu fisso */
 }
 
 header {
