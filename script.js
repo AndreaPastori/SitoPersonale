@@ -1,5 +1,5 @@
+let carouselIndex = 0; // Rinominato per evitare conflitti
 
-let index = 0;
 function moveSlide(direction) {
   const slide = document.querySelector('.carousel-slide');
   const items = document.querySelectorAll('.work-item');
@@ -7,11 +7,11 @@ function moveSlide(direction) {
   const itemWidth = items[0].offsetWidth + 20; // Larghezza + margine
   const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
   
-  index += direction;
-  if (index < 0) index = items.length - visibleItems;
-  if (index > items.length - visibleItems) index = 0;
+  carouselIndex += direction;
+  if (carouselIndex < 0) carouselIndex = items.length - visibleItems;
+  if (carouselIndex > items.length - visibleItems) carouselIndex = 0;
   
-  slide.style.transform = `translateX(-${index * itemWidth}px)`;
+  slide.style.transform = `translateX(-${carouselIndex * itemWidth}px)`;
 }
 
 window.openDetails = function(title, description, imageSrc) {
@@ -62,23 +62,14 @@ function closeDetails() {
   document.body.style.overflow = 'auto';
 }
 
-// Inizializza il carosello
-window.addEventListener('load', function() {
-    // Aggiungi un evento di ridimensionamento per ricalibrare il carosello
-    window.addEventListener('resize', function() {
-        const slide = document.querySelector('.carousel-slide');
-        slide.style.transform = 'translateX(0)';
-        index = 0;
-    });
-});
-
+// Gestione del carosello e del menu fisso
 document.addEventListener('DOMContentLoaded', function() {
   // Elementi del DOM
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
+  const mainNav = document.getElementById('main-nav');
   
   // Imposta l'altezza corretta del padding del body in base all'altezza del menu
-  const mainNav = document.getElementById('main-nav');
   document.body.style.paddingTop = mainNav.offsetHeight + 'px';
   
   // Gestione del menu hamburger
@@ -101,37 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // Ricalibra il padding quando la finestra viene ridimensionata
   window.addEventListener('resize', function() {
     document.body.style.paddingTop = mainNav.offsetHeight + 'px';
+    
+    // Reset del carosello
+    const slide = document.querySelector('.carousel-slide');
+    if (slide) {
+      slide.style.transform = 'translateX(0)';
+      carouselIndex = 0;
+    }
   });
 });
-      
-
-    
-    // Carosello - mantenuto dalla tua implementazione originale
-    let index = 0;
-    window.moveSlide = function(direction) {
-      const slide = document.querySelector('.carousel-slide');
-      const items = document.querySelectorAll('.work-item');
-      if (!slide || items.length === 0) return;
-      const itemWidth = items[0].offsetWidth + 20;
-      const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-      index += direction;
-      if (index < 0) index = items.length - visibleItems;
-      if (index > items.length - visibleItems) index = 0;
-      slide.style.transform = `translateX(-${index * itemWidth}px)`;
-    };
-    
-  
-    
-    // Ricalibra la posizione del nav quando la finestra viene ridimensionata
-    window.addEventListener('resize', function() {
-      navOffset = mainNav.offsetTop;
-      handleScroll(); // Ricalcola immediatamente
-      
-      // Codice originale per il carosello
-      const slide = document.querySelector('.carousel-slide');
-      if (slide) {
-        slide.style.transform = 'translateX(0)';
-        index = 0;
-      }
-    });
-  });
