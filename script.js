@@ -106,14 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Menu hamburger cliccato');
       });
       
-      // Chiudi il menu quando si fa click su un link
-      const navLinks = document.querySelectorAll('#nav-menu a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          navMenu.style.display = 'none';
-        });
-      });
-    }
+
     
     // Carosello - mantenuto dalla tua implementazione originale
     let index = 0;
