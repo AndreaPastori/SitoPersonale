@@ -73,38 +73,36 @@ window.addEventListener('load', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Elementi del DOM
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const navMenu = document.getElementById('nav-menu');
-    const mainNav = document.getElementById('main-nav');
-    
-    // Aggiungi la gestione dello scroll per rendere fisso il menu
-    let navOffset = mainNav.offsetTop;
-    
-    function handleScroll() {
-      if (window.pageYOffset >= navOffset) {
-        mainNav.classList.add('sticky-nav');
-        document.body.style.paddingTop = mainNav.offsetHeight + 'px';
-      } else {
-        mainNav.classList.remove('sticky-nav');
-        document.body.style.paddingTop = 0;
+  // Elementi del DOM
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const navMenu = document.getElementById('nav-menu');
+  
+  // Imposta l'altezza corretta del padding del body in base all'altezza del menu
+  const mainNav = document.getElementById('main-nav');
+  document.body.style.paddingTop = mainNav.offsetHeight + 'px';
+  
+  // Gestione del menu hamburger
+  if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener('click', function() {
+      navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+    });
+  }
+  
+  // Gestisci i click sui link del menu per nasconderlo su mobile dopo il click
+  const navLinks = navMenu.querySelectorAll('a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 768) {
+        navMenu.style.display = 'none';
       }
-    }
-    
-    // Aggiungi l'evento di scroll
-    window.addEventListener('scroll', handleScroll);
-    
-    // Gestione del menu hamburger
-    if (hamburgerBtn && navMenu) {
-      hamburgerBtn.addEventListener('click', function() {
-        // Controlla se il menu è visibile
-        if (navMenu.style.display === 'block') {
-          navMenu.style.display = 'none';
-        } else {
-          navMenu.style.display = 'block';
-        }
-        console.log('Menu hamburger cliccato');
-      });
+    });
+  });
+  
+  // Ricalibra il padding quando la finestra viene ridimensionata
+  window.addEventListener('resize', function() {
+    document.body.style.paddingTop = mainNav.offsetHeight + 'px';
+  });
+});
       
 
     

@@ -712,4 +712,17 @@ footer p, footer a {
       padding: 10px 0;
     }
   }
- 
+  #main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #d3c2b3;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Aggiungi padding al body per compensare l'altezza del menu fisso */
+body {
+    padding-top: 80px; /* Regola questo valore in base all'altezza effettiva del tuo menu */
+}
