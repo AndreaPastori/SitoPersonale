@@ -1,9 +1,11 @@
+
 let carouselIndex = 0; // Rinominato per evitare conflitti
 
 function moveSlide(direction) {
   const slide = document.querySelector('.carousel-slide');
   const items = document.querySelectorAll('.work-item');
   if (!slide || items.length === 0) return;
+  
   const itemWidth = items[0].offsetWidth + 20; // Larghezza + margine
   const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
   
@@ -55,7 +57,7 @@ function closeDetails() {
   // Rimuovi overlay
   const overlay = document.getElementById('project-overlay');
   if (overlay) {
-      overlay.remove();
+    overlay.remove();
   }
   
   // Riabilita lo scroll della pagina
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Gestione del menu hamburger
   if (hamburgerBtn && navMenu) {
     hamburgerBtn.addEventListener('click', function() {
-      navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+      navMenu.classList.toggle('show');
     });
   }
   
@@ -84,20 +86,20 @@ document.addEventListener('DOMContentLoaded', function() {
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
       if (window.innerWidth <= 768) {
-        navMenu.style.display = 'none';
+        navMenu.classList.remove('show');
       }
     });
   });
+  
+  // Inizializza il carosello per mostrare i primi 3 elementi
+  moveSlide(0);
   
   // Ricalibra il padding quando la finestra viene ridimensionata
   window.addEventListener('resize', function() {
     document.body.style.paddingTop = mainNav.offsetHeight + 'px';
     
     // Reset del carosello
-    const slide = document.querySelector('.carousel-slide');
-    if (slide) {
-      slide.style.transform = 'translateX(0)';
-      carouselIndex = 0;
-    }
+    carouselIndex = 0;
+    moveSlide(0); // Resetta la posizione ma mantiene la logica di visualizzazione
   });
 });
