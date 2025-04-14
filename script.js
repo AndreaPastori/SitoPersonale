@@ -1,21 +1,53 @@
 
 let index = 0;
-        function moveSlide(direction) {
-            const slide = document.querySelector('.carousel-slide');
-            const items = document.querySelectorAll('.work-item');
-            const total = items.length;
-            index = (index + direction + total) % total;
-           // slide.style.transform = ⁠ translateX(${-index * 200}px) ⁠;
-        }
+function moveSlide(direction) {
+  const slide = document.querySelector('.carousel-slide');
+  const items = document.querySelectorAll('.work-item');
+  if (!slide || items.length === 0) return;
+  const itemWidth = items[0].offsetWidth + 20; // Larghezza + margine
+  const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  
+  index += direction;
+  if (index < 0) index = items.length - visibleItems;
+  if (index > items.length - visibleItems) index = 0;
+  
+  slide.style.transform = `translateX(-${index * itemWidth}px)`;
+}
 
-function openDetails(title, description) {
-    document.getElementById('project-title').innerText = title;
-    document.getElementById('project-description').innerText = description;
-    document.getElementById('project-details').style.display = 'block';
+function openDetails(title, description, imageSrc) {
+  document.getElementById('project-title').innerText = title;
+  document.getElementById('project-description').innerText = description;
+  document.getElementById('project-image').src = imageSrc;
+  document.getElementById('project-details').style.display = 'block';
+  
+  // Aggiungi overlay di sfondo scuro
+  const overlay = document.createElement('div');
+  overlay.id = 'project-overlay';
+  overlay.style.position = 'fixed';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.backgroundColor = 'rgba(0,0,0,0.7)';
+  overlay.style.zIndex = '999';
+  overlay.onclick = closeDetails;
+  document.body.appendChild(overlay);
+  
+  // Disabilita lo scroll della pagina
+  document.body.style.overflow = 'hidden';
 }
 
 function closeDetails() {
-    document.getElementById('project-details').style.display = 'none';
+  document.getElementById('project-details').style.display = 'none';
+  
+  // Rimuovi overlay
+  const overlay = document.getElementById('project-overlay');
+  if (overlay) {
+      overlay.remove();
+  }
+  
+  // Riabilita lo scroll della pagina
+  document.body.style.overflow = 'auto';
 }
 
 // Inizializza il carosello

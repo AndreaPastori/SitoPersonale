@@ -301,44 +301,46 @@ footer {
 }
 
 .work-item {
-    min-width: 180px;
-    height: 250px;
-    background-color: #b8a495;
-    border-radius: 20px;
+    min-width: 220px; /* Aumentato da 180px */
+    height: 280px; /* Aumentato da 250px */
+    background-color: transparent; /* Rimuoviamo il colore di sfondo */
+    border-radius: 10px;
     margin: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.carousel-btn {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
+    overflow: hidden;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.work-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.work-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.work-item-title {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(184, 164, 149, 0.8);
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
 }
 
-.left { left: 5px; }
-.right { right: 5px; }
-
-.carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
+/* Modifica al project-details per mostrare le immagini */
 .project-details {
     display: none;
     position: fixed;
@@ -346,13 +348,27 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
-    padding: 20px;
+    padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     width: 90%;
-    max-width: 500px;
+    max-width: 700px; /* Aumentato per dare più spazio */
     text-align: center;
     z-index: 1000;
+}
+
+.project-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#project-description {
+    text-align: left;
+    line-height: 1.6;
+    margin: 15px 0;
 }
 
 .close-btn {

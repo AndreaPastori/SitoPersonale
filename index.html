@@ -90,35 +90,53 @@
             </div>
         </div>
         
-        <div id="miei-lavori" class="section">
-            <div class="section-header">
-                <h2>I miei Lavori</h2>
-                <a href="path/to/your/works.zip" download class="download-btn">
-                    <span>Scarica tutti</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                </a>
-            </div>
+    
             
-            <div class="carousel-container">
-                <button class="carousel-btn left" onclick="moveSlide(-1)">&#10094;</button>
-                <div class="carousel">
-                    <div class="carousel-slide">
-                        <div class="work-item" onclick="openDetails('Progetto 1', 'Descrizione del progetto 1')">Progetto 1</div>
-                        <div class="work-item" onclick="openDetails('Progetto 2', 'Descrizione del progetto 2')">Progetto 2</div>
-                        <div class="work-item" onclick="openDetails('Progetto 3', 'Descrizione del progetto 3')">Progetto 3</div>
-                        <div class="work-item" onclick="openDetails('Progetto 4', 'Descrizione del progetto 4')">Progetto 4</div>
-                        <div class="work-item" onclick="openDetails('Progetto 5', 'Descrizione del progetto 5')">Progetto 5</div>
-                    </div>
+            <div id="miei-lavori" class="section">
+                <div class="section-header">
+                    <h2>I miei Lavori</h2>
+                    <a href="path/to/your/works.zip" download class="download-btn">
+                        <span>Scarica tutti</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    </a>
                 </div>
-                <button class="carousel-btn right" onclick="moveSlide(1)">&#10095;</button>
+                
+                <div class="carousel-container">
+                    <button class="carousel-btn left" onclick="moveSlide(-1)">&#10094;</button>
+                    <div class="carousel">
+                        <div class="carousel-slide">
+                            <div class="work-item" onclick="openDetails('Speciment', 'Uno specimen grafico è un documento che mostra le caratteristiche visive e funzionali di un font per valutarne l’uso in progetti grafici.', 'speciment.png')">
+                                <img src="speciment.png" alt="Speciment">
+                                <div class="work-item-title">Speciment</div>
+                            </div>
+                            <div class="work-item" onclick="openDetails('Etichette', 'Etichette di vino dallo stile giapponese, eleganti e minimal, con fondo nero e dettagli in oro che evocano raffinatezza e tradizione.', 'etichette_pastori.png')">
+                                <img src="etichette_pastori.png" alt="Etichette">
+                                <div class="work-item-title">Etichette</div>
+                            </div>
+                            <div class="work-item" onclick="openDetails('Campagna Social', 'Serie di post per Instagram e Facebook per una campagna di lancio prodotto. Realizzazione di un kit grafico coerente e d\'impatto.', 'progetto3.jpg')">
+                                <img src="progetto3.jpg" alt="Campagna Social">
+                                <div class="work-item-title">Social Media</div>
+                            </div>
+                            <div class="work-item" onclick="openDetails('Packaging Design', 'Design della confezione per una linea di prodotti biologici. Focus sulla sostenibilità e sull\'appeal visivo per attrarre il target di riferimento.', 'progetto4.jpg')">
+                                <img src="progetto4.jpg" alt="Packaging Design">
+                                <div class="work-item-title">Packaging</div>
+                            </div>
+                            <div class="work-item" onclick="openDetails('Identità Visiva', 'Sviluppo completo dell\'identità visiva per un nuovo ristorante, inclusi logo, menu, biglietti da visita e materiali promozionali.', 'progetto5.jpg')">
+                                <img src="progetto5.jpg" alt="Identità Visiva">
+                                <div class="work-item-title">Brand Identity</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn right" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+                
+                <div id="project-details" class="project-details">
+                    <img id="project-image" class="project-image" src="speciment.png" alt="Immagine progetto">
+                    <h2 id="project-title"></h2>
+                    <p id="project-description"></p>
+                    <button class="close-btn" onclick="closeDetails()">Chiudi</button>
+                </div>
             </div>
-            
-            <div id="project-details" class="project-details">
-                <h2 id="project-title"></h2>
-                <p id="project-description"></p>
-                <button class="close-btn" onclick="closeDetails()">Chiudi</button>
-            </div>
-        </div>
             
         <div id="dove-trovarmi" class="section map-container">
             <h2>Dove trovarmi</h2>
