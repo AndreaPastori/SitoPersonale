@@ -129,16 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
       slide.style.transform = `translateX(-${index * itemWidth}px)`;
     };
     
-    window.openDetails = function(title, description) {
-      const projectTitle = document.getElementById('project-title');
-      const projectDescription = document.getElementById('project-description');
-      const projectDetails = document.getElementById('project-details');
-      if (projectTitle && projectDescription && projectDetails) {
-        projectTitle.innerText = title;
-        projectDescription.innerText = description;
-        projectDetails.style.display = 'block';
-      }
-    };
     
     window.closeDetails = function() {
       const projectDetails = document.getElementById('project-details');
