@@ -726,3 +726,38 @@ footer p, footer a {
 body {
     padding-top: 80px; /* Regola questo valore in base all'altezza effettiva del tuo menu */
 }
+/* Stile per i bottoni di navigazione del carosello */
+.carousel-btn {
+    background-color: transparent;
+    color: #90786a; /* Colore marrone scuro delle frecce */
+    border: 2px solid #90786a;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.carousel-btn:hover {
+    background-color: #90786a;
+    color: white;
+}
+
+/* Assicurati che le frecce siano visibili anche su sfondo chiaro */
+.carousel-btn.left, .carousel-btn.right {
+    font-weight: bold;
+}
+
+/* Aggiustamenti per dispositivi mobili */
+@media screen and (max-width: 768px) {
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
