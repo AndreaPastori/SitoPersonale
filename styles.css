@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #222;
+    padding-top: 80px; /* Compensare l'altezza del menu fisso */
 }
 
 header {
@@ -11,6 +12,7 @@ header {
     padding: 20px;
     background-color: #e1d7cb;
 }
+
 .section-header {
     display: flex;
     justify-content: space-between;
@@ -28,7 +30,6 @@ header {
     transition: all 0.3s ease;
 }
 
-
 .download-btn:hover {
     background-color: #a08c7e;
     transform: scale(1.05);
@@ -42,18 +43,17 @@ header {
     transform: translateY(2px);
 }
 
-    form label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-        text-align: left;
-    }
-    
-    form input, form textarea {
-        margin-top: 0;
-        margin-bottom: 15px;
-    }
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
 
+form input, form textarea {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
 
 @media screen and (max-width: 768px) {
     .section-header {
@@ -69,6 +69,17 @@ header {
     .download-btn {
         align-self: flex-end;
     }
+}
+
+/* Menu di navigazione */
+#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #d3c2b3;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav {
@@ -108,6 +119,7 @@ nav a {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Competenze */
 .skills-container {
     margin-top: 30px;
 }
@@ -146,7 +158,7 @@ nav a {
 
 .skill-level {
     height: 100%;
-    background-color: #90786a; /* Esempio di colore più scuro */
+    background-color: #90786a;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -174,6 +186,7 @@ nav a {
     font-style: italic;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -207,7 +220,7 @@ footer {
 }
 
 .cta-button {
-    background-color: #90786a; /* Esempio di colore più scuro */
+    background-color: #90786a;
     color: white;
     padding: 12px 25px;
     border-radius: 30px;
@@ -232,6 +245,7 @@ footer {
     }
 }
 
+/* Mappa e Contatti */
 .map-container, .contact-container {
     text-align: center; 
 }
@@ -281,31 +295,36 @@ footer {
     background-color: #b8a495;
 }
 
+/* MODIFICHE AL CAROSELLO - INIZIO */
 .carousel-container {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     margin: 20px 0;
+    width: 100%;
 }
 
 .carousel {
     overflow: hidden;
     width: 100%;
-    max-width: 600px;
+    max-width: 840px; /* Aumentata per mostrare 3 elementi completi */
+    padding: 0 10px; /* Aggiungi padding per evitare che gli elementi tocchino i bordi */
 }
 
 .carousel-slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    padding: 5px 0; /* Aggiungi un po' di padding verticale */
 }
 
 .work-item {
-    min-width: 220px; /* Aumentato da 180px */
-    height: 280px; /* Aumentato da 250px */
-    background-color: transparent; /* Rimuoviamo il colore di sfondo */
+    min-width: 250px; /* Larghezza fissa più precisa */
+    width: 250px; /* Aggiungi anche width esplicita */
+    height: 280px;
+    margin: 0 10px;
+    flex: 0 0 auto; /* Impedisce il ridimensionamento */
     border-radius: 10px;
-    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -340,7 +359,34 @@ footer {
     font-weight: bold;
 }
 
-/* Modifica al project-details per mostrare le immagini */
+/* Stile per i bottoni di navigazione del carosello */
+.carousel-btn {
+    background-color: transparent;
+    color: #90786a;
+    border: 2px solid #90786a;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.carousel-btn:hover {
+    background-color: #90786a;
+    color: white;
+}
+
+.carousel-btn.left, .carousel-btn.right {
+    font-weight: bold;
+}
+/* MODIFICHE AL CAROSELLO - FINE */
+
+/* Project details */
 .project-details {
     display: none;
     position: fixed;
@@ -352,7 +398,7 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     width: 90%;
-    max-width: 700px; /* Aumentato per dare più spazio */
+    max-width: 700px;
     text-align: center;
     z-index: 1000;
 }
@@ -427,7 +473,13 @@ form button:hover {
     background-color: #a08c7e;
 }
 
-/* Media queries per dispositivi mobile */
+/* Media queries per responsiveness */
+@media screen and (max-width: 1024px) {
+    .carousel {
+        max-width: 560px; /* Per mostrare 2 elementi completi */
+    }
+}
+
 @media screen and (max-width: 768px) {
     header {
         padding: 15px;
@@ -453,7 +505,6 @@ form button:hover {
         border-bottom: none; 
         font-size: 16px; 
     }
-    
     
     .hero {
         padding: 20px 15px;
@@ -484,19 +535,17 @@ form button:hover {
         text-align: left;
     }
     
-  
     .skill-bar {
         width: 100%;
     }
     
-    
-    .work-item {
-        min-width: 140px;
-        height: 200px;
+    .carousel {
+        max-width: 280px; /* Per mostrare 1 elemento completo */
     }
     
-    .carousel {
-        max-width: 300px;
+    .work-item {
+        min-width: 260px;
+        width: 260px;
     }
     
     iframe {
@@ -506,6 +555,7 @@ form button:hover {
     .contact-container form {
         width: 100%;
     }
+    
     .privacy-checkbox {
         display: flex;
         flex-direction: column;
@@ -522,6 +572,12 @@ form button:hover {
     .privacy-checkbox label {
         font-size: 14px;
         line-height: 1.4;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
     }
 }
 
@@ -542,14 +598,14 @@ form button:hover {
         font-size: 20px;
     }
     
-    .work-item {
-        min-width: 120px;
-        height: 180px;
-        font-size: 16px;
+    .carousel {
+        max-width: 240px;
     }
     
-    .carousel {
-        max-width: 250px;
+    .work-item {
+        min-width: 220px;
+        width: 220px;
+        height: 250px;
     }
     
     iframe {
@@ -576,6 +632,8 @@ form button:hover {
         font-size: 16px;
     }
 }
+
+/* Accessibilità ed elementi di focus */
 button:focus,
 a:focus,
 input:focus,
@@ -584,6 +642,8 @@ select:focus {
     outline: 2px solid #b8a495; 
     outline-offset: 2px; 
 }
+
+/* Menu hamburger */
 .hamburger-btn {
     display: none; /* Nascosto di default */
 }
@@ -599,7 +659,7 @@ select:focus {
         border: none;
         font-size: 24px;
         cursor: pointer;
-        z-index: 1001; /* Valore alto per essere sopra tutto */
+        z-index: 1001;
         color: #222;
         padding: 10px;
     }
@@ -658,6 +718,8 @@ select:focus {
         padding: 10px 20px;
     }
 }
+
+/* Miglioramenti per il contrasto e accessibilità */
 .section-title {
     color: #000000; /* Nero per un alto contrasto */
 }
@@ -674,7 +736,6 @@ footer p, footer a {
     color: #ffffff; /* Testo bianco nel footer per contrasto con sfondo scuro */
 }
 
-/* Aumenta il contrasto per il testo descrittivo nei progetti */
 .work-item h3 {
     color: #000000;
 }
@@ -683,6 +744,7 @@ footer p, footer a {
     color: #333333;
 }
 
+/* Navigazione sticky */
 .sticky-nav {
     position: fixed;
     top: 0;
@@ -690,74 +752,22 @@ footer p, footer a {
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    background-color: #d3c2b3; /* Stesso colore del tuo nav attuale */
+    background-color: #d3c2b3;
     transition: all 0.3s ease;
-  }
-  
-  /* Assicura che il bottone hamburger rimanga visibile quando il menu è fisso */
-  .sticky-nav .hamburger-btn {
+}
+
+.sticky-nav .hamburger-btn {
     position: absolute;
     right: 20px;
     top: 10px;
-  }
-  
-  /* Stile per il menu di navigazione quando è fisso */
-  .sticky-nav .nav-menu {
+}
+
+.sticky-nav .nav-menu {
     top: 100%;
-  }
-  
-  /* Aggiungi un po' di padding quando il menu è fisso per mantenere la leggibilità */
-  @media screen and (max-width: 768px) {
-    .sticky-nav {
-      padding: 10px 0;
-    }
-  }
-  #main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #d3c2b3;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Aggiungi padding al body per compensare l'altezza del menu fisso */
-body {
-    padding-top: 80px; /* Regola questo valore in base all'altezza effettiva del tuo menu */
-}
-/* Stile per i bottoni di navigazione del carosello */
-.carousel-btn {
-    background-color: transparent;
-    color: #90786a; /* Colore marrone scuro delle frecce */
-    border: 2px solid #90786a;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 20px;
-    transition: all 0.3s ease;
-    margin: 0 10px;
-}
-
-.carousel-btn:hover {
-    background-color: #90786a;
-    color: white;
-}
-
-/* Assicurati che le frecce siano visibili anche su sfondo chiaro */
-.carousel-btn.left, .carousel-btn.right {
-    font-weight: bold;
-}
-
-/* Aggiustamenti per dispositivi mobili */
 @media screen and (max-width: 768px) {
-    .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
+    .sticky-nav {
+        padding: 10px 0;
     }
 }

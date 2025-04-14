@@ -1,18 +1,31 @@
-
-let carouselIndex = 0; // Rinominato per evitare conflitti
+let carouselIndex = 0;
 
 function moveSlide(direction) {
   const slide = document.querySelector('.carousel-slide');
   const items = document.querySelectorAll('.work-item');
-  if (!slide || items.length === 0) return;
+  const carousel = document.querySelector('.carousel');
   
-  const itemWidth = items[0].offsetWidth + 20; // Larghezza + margine
-  const visibleItems = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  if (!slide || items.length === 0 || !carousel) return;
   
+  // Calcola quanti elementi possono essere mostrati in base alla larghezza attuale
+  const carouselWidth = carousel.offsetWidth;
+  const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginLeft) + 
+                    parseInt(getComputedStyle(items[0]).marginRight);
+  
+  // Calcola quanti elementi interi possono entrare nel carosello
+  const visibleItems = Math.floor(carouselWidth / itemWidth);
+  
+  // Calcola il numero massimo di "pagine" del carosello
+  const maxIndex = Math.max(0, items.length - visibleItems);
+  
+  // Aggiorna l'indice del carosello
   carouselIndex += direction;
-  if (carouselIndex < 0) carouselIndex = items.length - visibleItems;
-  if (carouselIndex > items.length - visibleItems) carouselIndex = 0;
   
+  // Assicurati che l'indice sia valido
+  if (carouselIndex < 0) carouselIndex = maxIndex;
+  if (carouselIndex > maxIndex) carouselIndex = 0;
+  
+  // Sposta il carosello
   slide.style.transform = `translateX(-${carouselIndex * itemWidth}px)`;
 }
 
@@ -82,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Gestisci i click sui link del menu per nasconderlo su mobile dopo il click
-  const navLinks = navMenu.querySelectorAll('a');
+  const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
   navLinks.forEach(link => {
     link.addEventListener('click', function() {
       if (window.innerWidth <= 768) {
@@ -91,12 +104,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Inizializza il carosello per mostrare i primi 3 elementi
+  // Inizializza il carosello per mostrare i primi elementi
   moveSlide(0);
   
   // Ricalibra il padding quando la finestra viene ridimensionata
   window.addEventListener('resize', function() {
-    document.body.style.paddingTop = mainNav.offsetHeight + 'px';
+    if (mainNav) {
+      document.body.style.paddingTop = mainNav.offsetHeight + 'px';
+    }
     
     // Reset del carosello
     carouselIndex = 0;
