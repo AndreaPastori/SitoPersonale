@@ -14,28 +14,40 @@ function moveSlide(direction) {
   slide.style.transform = `translateX(-${index * itemWidth}px)`;
 }
 
-function openDetails(title, description, imageSrc) {
-  document.getElementById('project-title').innerText = title;
-  document.getElementById('project-description').innerText = description;
-  document.getElementById('project-image').src = imageSrc;
-  document.getElementById('project-details').style.display = 'block';
+window.openDetails = function(title, description, imageSrc) {
+  const projectTitle = document.getElementById('project-title');
+  const projectDescription = document.getElementById('project-description');
+  const projectImage = document.getElementById('project-image');
+  const projectDetails = document.getElementById('project-details');
   
-  // Aggiungi overlay di sfondo scuro
-  const overlay = document.createElement('div');
-  overlay.id = 'project-overlay';
-  overlay.style.position = 'fixed';
-  overlay.style.top = '0';
-  overlay.style.left = '0';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
-  overlay.style.backgroundColor = 'rgba(0,0,0,0.7)';
-  overlay.style.zIndex = '999';
-  overlay.onclick = closeDetails;
-  document.body.appendChild(overlay);
-  
-  // Disabilita lo scroll della pagina
-  document.body.style.overflow = 'hidden';
-}
+  if (projectTitle && projectDescription && projectImage && projectDetails) {
+    projectTitle.innerText = title;
+    projectDescription.innerText = description;
+    
+    // Imposta l'immagine corretta per ciascun progetto
+    if (imageSrc) {
+      projectImage.src = imageSrc;
+    }
+    
+    projectDetails.style.display = 'block';
+    
+    // Aggiungi overlay di sfondo scuro
+    const overlay = document.createElement('div');
+    overlay.id = 'project-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    overlay.style.zIndex = '999';
+    overlay.onclick = closeDetails;
+    document.body.appendChild(overlay);
+    
+    // Disabilita lo scroll della pagina
+    document.body.style.overflow = 'hidden';
+  }
+};
 
 function closeDetails() {
   document.getElementById('project-details').style.display = 'none';
